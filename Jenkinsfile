@@ -1,46 +1,5 @@
 pipeline {
-  agent any
-	
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('docker-hub-cred')
-    REMOTE_SERVER = 'your-remote-server-ip'
-    REMOTE_USER = 'your-remote-server-user' 	  	  
-  }
-	
-  // Fetch code from GitHub
-	
-   stages {
-    stage('checkout') {
-      steps {
-        git branch: 'main', url: 'https://github.com/pravalikaponnugupati/DevOps-CI-CD-Project'
-
-      }
-    }
-	  
-   // Build Java application
-	  
-    stage('Maven Build') {
-      steps {
-        sh 'mvn clean install'
-      }
-	    
-     // Post building archive Java application
-	    
-      post {
-        success {
-          archiveArtifacts artifacts: '**/target/*.jar'
-        }
-      }
-    }
-	  
-  // Test Java application
-	  
-    stage('Maven Test') {
-      steps {
-        sh 'mvn test'
-      }
-    }
-	  
+ 
    // Build docker image in Jenkins
 	  
     stage('Build Docker Image') {
