@@ -9,13 +9,13 @@ pipeline {
 	
   // Fetch code from GitHub
 	
-  stages {
-    stage('checkout') {
-      steps {
-        git branch: 'main', url: 'https://github.com/pravalikaponnugupati/DevOps-CI-CD-Project'
+  // stages {
+    //stage('checkout') {
+      //steps {
+        //git branch: 'main', url: 'https://github.com/pravalikaponnugupati/DevOps-CI-CD-Project'
 
-      }
-    }
+     // }
+  //  }
 	  
    // Build Java application
 	  
